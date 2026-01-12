@@ -1,5 +1,3 @@
-**Hello world!**
-
 Installer Vagrant:
 
 ```
@@ -8,12 +6,18 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt install vagrant
 ```
 
-Installer plugin KVM:
+Installer VB:
 
 ```
-sudo apt update
-sudo apt install -y libvrt qemu-kvm libvirt-daemon-system libvirt-clients ebtables
-sudo usermod -aG libvirt $USER
-sudo systemctl enable --now libvirtd
-vagrant plugin install vagrant-libvirt
+sudo apt install virtualbox
+```
+
+Check:
+
+```
+vagrant status
+vagrant ssh [hostname]
+    hostname
+    ip a
+    ping [ip2]
 ```
