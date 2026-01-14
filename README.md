@@ -12,6 +12,11 @@ Installer VB:
 sudo apt install virtualbox
 ```
 
+Installer KVM:
+```
+sudo apt install build-essential qemu-kvm libvirt-daemon-system libguestfs-tools ksmtuned libvirt-clients libxslt-dev libxml2-dev libvirt-dev zlib1g-dev ruby-dev ruby-libvirt ebtables sudo usermod -aG libvirt $USER 
+vagrant plugin install vagrant-libvirt
+
 Check:
 
 ```
