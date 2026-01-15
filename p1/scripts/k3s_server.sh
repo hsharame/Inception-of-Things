@@ -5,7 +5,9 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 curl -sfL https://get.k3s.io | sh -
 
-sleep 10
+until sudo test -f /var/lib/rancher/k3s/server/tls/server-ca.crt; do
+    sleep 3
+done
 
 mkdir -p /home/vagrant/.kube
 sudo cp /etc/rancher/k3s/k3s.yaml /home/vagrant/.kube/config
