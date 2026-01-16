@@ -3,7 +3,7 @@
 sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
-curl -sfL https://get.k3s.io | sh -
+curl -sfL https://get.k3s.io | sh -s - --node-ip=${IP_SERVER} --advertise-address=${IP_SERVER} 
 
 until sudo test -f /var/lib/rancher/k3s/server/tls/server-ca.crt; do
     sleep 3
