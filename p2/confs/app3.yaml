@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-three
+  labels:
+    app: three
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: three
+  template:
+    metadata:
+      labels:
+        app: three
+    spec:
+      containers:
+      - name: app-three
+        image: nginx:stable-trixie-perl
+        command:
+          - sh
+          - -c
+          - |
+            echo "Hello from app3" > /usr/share/nginx/html/index.html
+            nginx -g "daemon off;"
+        ports:
+        - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-three
+spec:
+  type: ClusterIP
+  selector:
+    app: three
+  ports:
+  - port: 80
+    protocol: TCP
