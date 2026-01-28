@@ -3,7 +3,7 @@ k3d cluster create p3
 
 sleep 30
 
-kubectl apply -f /vagrant/confs/namespaces.yaml
+kubectl apply -f confs/namespaces.yaml
 
 #install argocd and CLI
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
@@ -17,4 +17,5 @@ sudo chmod +x /usr/local/bin/argocd
 
 kubectl wait --for=condition=ready pod -n argocd --all --timeout=180s
 
-kubectl apply -f /vagrant/confs/app.yaml
+kubectl apply -f confs/app.yaml
+
